@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
+#include "fun.h"
+
 #define SIZE_FRAME 8
 #define SIZE_PACKAGE 12
 
@@ -14,46 +16,67 @@
 
 int main()
 {
-    uint8_t package[SIZE_PACKAGE][SIZE_FRAME] = {
-        // frame 1
-        {0,0,0,1, 1,0,1,0},
+    int package[SIZE_PACKAGE][SIZE_FRAME] = {
+        // 0 - полезная информация, 1 -служебная
+        // frame 1 
+        {0,0,0,0,1, 1,0,1},
         // frame 2
-        {1,1,1,0, 0,1,0,1},
+        {1,1,1,1,0, 0,1,0},
         // frame 3
-        {1,1,1,1, 1,1,1,1},
+        {0,1,1,1,1, 1,1,1},
         // frame 4
-        {0,0,0,0, 0,0,0,0},
+        {1,0,0,0,0, 0,0,0},
         // frame 5
-        {1,0,1,0, 1,0,1,0},
+        {0,1,0,1,0, 1,0,1},
         // frame 6 
-        {0,1,0,1, 0,1,0,1},
+        {1,0,1,0,1, 0,1,0},
         //frame 7
-        {1,0,1,0, 0,0,0,0},
+        {0,1,0,1,0, 1,0,1},
         //frame 8
-        {0,1,0,1, 1,1,1,1},
+        {1,0,1,0,1, 0,1,0},
         //frame 9
-        {1,1,1,1, 0,0,0,1},
+        {0,1,1,1,1, 0,0,0},
         //frame 10
-        {0,0,0,0, 1,1,1,0},
+        {1,0,0,0,0, 1,1,1},
         //frame 11
-        {0,0,1,1, 1,0,1,0},
+        {0,0,0,1,1, 1,0,1},
         //frame 12
-        {1,1,0,0, 0,1,0,1}
+        {1,1,1,0,0, 0,1,0}
     };
-    
     printf("Началась проверка!\r\n");
-    
+    check_package(package);
+    package[0][1] = 1;
+    package[1][1] = 1;
+    check_package(package);
+    package[0][1] = 1;
+    package[0][1] = 0;
+    check_package(package);
+    package[0][1] = 1;
+    package[0][1] = 0;
+    package[0][0] = 1;
+    check_package(package);
+    return 0;
+}
+
+
+void check_package(int package[SIZE_PACKAGE][SIZE_FRAME]) {
     int curr = 0;
     int err = 0;
-    for(uint8_t i = 0; i < SIZE_PACKAGE; i++) {
+    for(int i = 0; i < SIZE_PACKAGE; i++) {
         if(i % 2 == 0) {
-            curr = i + 1;   
-            for(uint8_t j = 0; j < SIZE_FRAME; j++) {
-                if(package[i][j] == package[curr][j]) {
-                    printf("Неверный кадр номер %d\r\n", i+1);
-                    err++;
+            curr = i + 1; 
+            if((package[i][0] == 0) && (package[curr][0] == 1)) {
+                for(int j = 0; j < SIZE_FRAME; j++) {
+                    if(package[i][j] == package[curr][j]) {
+                        printf("Неверный кадр номер %d\r\n", i+1);
+                        err++;
+                    }
                 }
+            }else {
+                err++;
+                printf("Ошибка кадра!\r\n");
             }
+
         }
     }
     if(!err) {
@@ -61,5 +84,5 @@ int main()
     } else {
         printf("Проверка не прошла !\r\n");
     }
-    return 0;
+    err = 0;
 }
