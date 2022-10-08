@@ -6,7 +6,6 @@ logic       clk;
 logic[1:0]  state;
 logic       data;
 logic[1:0]  prev_state_;
-logic[2:0] coun;
 
 parameter PERIOD = 10;
 

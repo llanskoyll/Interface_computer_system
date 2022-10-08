@@ -2,21 +2,13 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sat Oct  8 20:36:30 2022
-# Process ID: 5552
+# Start of session at: Sat Oct  8 20:33:59 2022
+# Process ID: 4128
 # Current directory: C:/Users/12345/Desktop/interface/Interface_computer_system/lab_1/Lab1
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6972 C:\Users\12345\Desktop\interface\Interface_computer_system\lab_1\Lab1\Lab1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10648 C:\Users\12345\Desktop\interface\Interface_computer_system\lab_1\Lab1\Lab1.xpr
 # Log file: C:/Users/12345/Desktop/interface/Interface_computer_system/lab_1/Lab1/vivado.log
 # Journal file: C:/Users/12345/Desktop/interface/Interface_computer_system/lab_1/Lab1\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/12345/Desktop/interface/Interface_computer_system/lab_1/Lab1/Lab1.xpr
 update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
-launch_simulation
-source Decoder_bench.tcl
-relaunch_sim
-close_sim
