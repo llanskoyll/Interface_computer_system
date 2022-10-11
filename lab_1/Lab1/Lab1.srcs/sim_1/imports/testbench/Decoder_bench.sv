@@ -51,55 +51,51 @@ initial begin
     int curr_state;
     
     @(posedge clk); 
-    #1;
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
+ 
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(0,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+ 
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(1,curr_state);
     @(posedge clk); 
-    #1;
+
     decoder_task(1,curr_state);
 end
 endmodule
